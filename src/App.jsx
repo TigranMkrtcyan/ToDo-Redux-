@@ -7,15 +7,12 @@ import { LoadingTHUNK } from './store/reducers/ToDoReducer'
 import Add from './components/Add/Add'
 
 function App() {
-  const {todos , text , isFetching} = useSelector((store) => store.ToDoReducer)
+  const {todos} = useSelector((store) => store.ToDoReducer)
   const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(LoadingTHUNK())
   }, [dispatch])
-
-  console.log(todos);
-  
 
   return (
       <div>

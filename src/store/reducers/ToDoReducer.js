@@ -59,6 +59,39 @@ export const UpdateTodoAC = (todo) => ({ type: UPDATE_TODO, payload: todo })
 export const AddTodoItemAC = (newTodo) => ({ type: ADD_TODO, payload: newTodo })
 export const ChangeTextAC = (e) => ({ type: CHANGE_TEXT, payload: e })
 
+export const CreateToDoTHUNK = (newTodo) => {
+    return (dispatch) => {
+        dispatch(LoadingAC(true));
+        API.createToDo(newTodo)
+            .then((res) => {
+                dispatch(AddTodoItemAC(res.data));
+                dispatch(LoadingAC(false));
+            })
+    };
+};
+
+export const DeleteToDoTHUNK = (id) => {
+    return (dispatch) => {
+        dispatch(LoadingAC(true));
+        API.deleteToDo(id)
+            .then(() => {
+                dispatch(DeleteAC(id));
+                dispatch(LoadingAC(false));
+            })
+    };
+};
+
+export const UpdateToDoTHUNK = (id, updatedData) => {
+    return (dispatch) => {
+        dispatch(LoadingAC(true));
+        API.patchToDo(id, updatedData)
+            .then((res) => {
+                dispatch(UpdateTodoAC(res.data));
+                dispatch(LoadingAC(false));
+            })
+    };
+};
+
 export const LoadingTHUNK = () => {
     return (dispatch) => {
         dispatch(LoadingAC(true))
@@ -69,5 +102,6 @@ export const LoadingTHUNK = () => {
             })
     }
 }
+
 export default ToDoReducer
 

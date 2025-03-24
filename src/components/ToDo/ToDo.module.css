@@ -1,46 +1,108 @@
 .todo {
     display: flex;
     align-items: center;
-    padding: 12px;
-    margin-bottom: 8px;
-    border: 1px solid #eee;
-    border-radius: 4px;
-    background-color: #f9f9f9;
-    transition: background-color 0.2s;
+    padding: 12px 16px;
+    margin: 10px 0;
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
 }
 
 .todo:hover {
-    background-color: #f0f0f0;
+    background-color: #f1f3f5;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.todo input[type="checkbox"] {
+    margin-right: 10px;
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
 }
 
 .text {
     flex: 1;
-    margin: 0 12px;
+    font-size: 16px;
+    color: #343a40;
 }
 
 .line {
     flex: 1;
-    margin: 0 12px;
+    font-size: 16px;
+    color: #868e96;
     text-decoration: line-through;
-    color: #999;
 }
 
-.deleteBtn {
-    background-color: #f44336;
-    color: white;
-    border: none;
+.todoButtons {
+    display: flex;
+    gap: 8px;
+}
+
+.editButton, 
+.deleteButton, 
+.saveButton, 
+.cancelButton {
     padding: 6px 12px;
+    border: none;
     border-radius: 4px;
     cursor: pointer;
+    font-size: 14px;
     transition: background-color 0.2s;
 }
 
-.deleteBtn:hover {
-    background-color: #d32f2f;
+.editButton {
+    background-color: #228be6;
+    color: white;
 }
 
-.checkbox {
-    cursor: pointer;
-    width: 18px;
-    height: 18px;
+.editButton:hover {
+    background-color: #1c7ed6;
+}
+
+.deleteButton {
+    background-color: #fa5252;
+    color: white;
+}
+
+.deleteButton:hover {
+    background-color: #e03131;
+}
+
+.editContainer {
+    display: flex;
+    flex: 1;
+    gap: 10px;
+    align-items: center;
+}
+
+.editInput {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.editButtons {
+    display: flex;
+    gap: 8px;
+}
+
+.saveButton {
+    background-color: #40c057;
+    color: white;
+}
+
+.saveButton:hover {
+    background-color: #37b24d;
+}
+
+.cancelButton {
+    background-color: #868e96;
+    color: white;
+}
+
+.cancelButton:hover {
+    background-color: #495057;
 }

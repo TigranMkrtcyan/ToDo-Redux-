@@ -13,7 +13,10 @@ const API = {
     },
     deleteToDo(id) {
         return instance.delete(`/todos/${id}`)
-    }
+    },
+    patchToDo(id, updatedData) {
+        return instance.patch(`/todos/${id}`, updatedData);
+    },
 }
 
 export default API
