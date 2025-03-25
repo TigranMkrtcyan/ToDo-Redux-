@@ -7,7 +7,7 @@ import { LoadingTHUNK } from './store/reducers/ToDoReducer'
 import Add from './components/Add/Add'
 
 function App() {
-  const {todos} = useSelector((store) => store.ToDoReducer)
+  const { todos, isFetching } = useSelector((store) => store.ToDoReducer)
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -15,14 +15,19 @@ function App() {
   }, [dispatch])
 
   return (
-      <div>
-        <Add />
-        {
-            todos.map((el) => {
-              return <ToDo key={el.id} todo={el}/> 
-            })
-        }
-      </div>
+    <>
+      {
+        isFetching ? <div class="loader"></div> :
+          <div>
+            <Add />
+            {
+              todos.map((el) => {
+                return <ToDo key={el.id} todo={el} />
+              })
+            }
+          </div>
+      }
+    </>
   )
 }
 

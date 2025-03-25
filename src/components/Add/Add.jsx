@@ -3,7 +3,7 @@ import style from './Add.module.css'
 import { ChangeTextAC, CreateToDoTHUNK } from '../../store/reducers/ToDoReducer'
 
 const Add = () => {
-    const { text } = useSelector((store) => store.ToDoReducer)
+    const { text, isFetching } = useSelector((store) => store.ToDoReducer)
     const dispatch = useDispatch()
 
     const handleAdd = (text) => {
@@ -11,7 +11,7 @@ const Add = () => {
             return
         } else {
             const newTodo = {
-                id : new Date().getDate().toString(),
+                id: new Date().getDate().toString(),
                 title: text,
                 completed: false,
             }

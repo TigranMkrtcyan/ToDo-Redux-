@@ -40,7 +40,6 @@ const ToDo = ({ todo }) => {
                 onChange={() => handleComplete(todo)} 
                 disabled={isEditing}
             />
-            
             {isEditing ? (
                 <div className={style.editContainer}>
                     <input
@@ -49,8 +48,7 @@ const ToDo = ({ todo }) => {
                         onChange={(e) => setEditText(e.target.value)}
                         className={style.editInput}
                         autoFocus
-                        onKeyPress={(e) => e.key === 'Enter' && handleSave()}
-                    />
+                        onKeyPress={(e) => e.key === 'Enter' && handleSave()}/>
                     <div className={style.editButtons}>
                         <button className={style.saveButton} onClick={handleSave}>Save</button>
                         <button className={style.cancelButton} onClick={handleCancel}>Cancel</button>
